@@ -22,8 +22,8 @@ exports.createVuelo = (req, res)=>{
         lugares: req.body.lugares,
         pais_origen: req.body.paisOrigen,
         pais_destino: req.body.paisDestino,
-        hora_llegada: req.body.hora_llegada,
-        hora_salida: req.body.hora_salida,
+        hora_llegada: req.body.horaLlegada,
+        hora_salida: req.body.horaSalida,
     }).then(result=>{
         res.json({
             estado: "Lugar agregado exitosamente"
