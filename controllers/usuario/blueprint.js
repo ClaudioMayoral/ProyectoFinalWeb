@@ -24,7 +24,9 @@ exports.createUsuario = (req, res)=>{
         dob: req.body.dob,
     }).then(result=>{
         res.json({
-            estado: mensajes.SuccessCreate})
+            estado: mensajes.SuccessCreate,
+            id: result.id
+        })
     })
     .catch((err)=>{
         console.log(err)

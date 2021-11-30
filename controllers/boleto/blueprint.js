@@ -82,7 +82,35 @@ function updateVuelo(id){
         res.json({estado: mensajes.NotFoundException})
     })
 
-    
+ 
+}
+
+function agregarLugar(id){
+
+    modeloVuelo.findAll({
+        where:{
+            id: id
+        }
+    }).then(vuelo=>{
+        modeloVuelo.update({
+            lugares: vuelo[0].lugares + 1,
+        },{
+            where:{
+                id: id
+            }
+        })
+        .then(()=>{
+            res.json({estado:mensajes.SuccessUpdate})
+        })
+        .catch((err)=>{
+            res.json({estado: mensajes.NotFoundException})
+        })
+        res.json(vuelo[0])
+    }).catch(err=>{
+        res.json({estado: mensajes.NotFoundException})
+    })
+
+ 
 }
 
 
@@ -90,10 +118,11 @@ exports.deleteBoleto = (req, res)=>{
 
     modeloBoleto.destroy({
         where:{
-            id_vuelo: req.params.id_vuelo,
-            id_usuario: req.params.id_usuario
+            id_vuelo: req.body.idVuelo,
+            id_usuario: req.body.idUsuario
         }
     }).then(() =>{
+        agregarLugar(req.body.idVuelo)
         res.json({estado: mensajes.SuccessDelete})
     })
     .catch(err=>{

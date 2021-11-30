@@ -11,6 +11,6 @@ router.get("/vuelo/:id", boletoController.getBoletoVuelo)
 
 router.post('/crear',boletoController.createBoleto)
 
-router.post('/eliminar/:id_vuelo/:id_usuario',boletoController.deleteBoleto)
+router.post('/eliminar',boletoController.deleteBoleto)
 
 module.exports = router

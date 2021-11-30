@@ -20,8 +20,8 @@ app.use("/vuelo",vuelo)
 //Lanzar la aplicación para escuchar peticiones
 sequelize.sync()
     .then(()=>{
-        app.listen(8083,()=>{
-            console.log("Aplicación web en línea en el puerto 8083")
+        app.listen(8080,()=>{
+            console.log("Aplicación web en línea en el puerto 8080")
     })
     })
     .catch(err=>console.log(err))

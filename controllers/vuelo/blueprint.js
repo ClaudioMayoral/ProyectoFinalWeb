@@ -26,7 +26,8 @@ exports.createVuelo = (req, res)=>{
         hora_salida: req.body.horaSalida,
     }).then(result=>{
         res.json({
-            estado: "Lugar agregado exitosamente"
+            estado: mensajes.SuccessCreate,
+            id: result.id
         })
     })
     .catch((err)=>{

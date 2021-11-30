@@ -11,7 +11,7 @@ function MensajeUsuario(codigo, mensaje, http) {
  const NotFoundException = new MensajeUsuario("NotFoundException", "Resource not found", 422)
  const InvalidContentException = new MensajeUsuario("InvalidBodyException", "Must choose from one of these departments: book, movie", 422)
 
- const Forbiden = new MensajeUsuario("Forbiden", "", 403)
+ const Forbiden = new MensajeUsuario("Forbiden", "ERROR", 403)
 
 //Valid
 const SuccessCreate = new MensajeUsuario("Success", "Created successfully", 200)
